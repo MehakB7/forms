@@ -1,10 +1,9 @@
 import "./App.css";
-import { Signup } from "./forms/withHook/Singup";
-
+import { AllRoutes } from "./Routes/index.js";
 function App() {
   return (
     <div className="App">
-      <Signup />
+      <AllRoutes />
     </div>
   );
 }
