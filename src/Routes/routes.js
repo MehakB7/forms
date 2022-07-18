@@ -1,5 +1,7 @@
 import { Menu } from "../layout/Menu";
 import { Signup } from "../forms/withHook/Singup";
+import { Appointment } from "../forms/withHook/Appointment";
+import SignUpComp from "../forms/withComponent/SignUpComp";
 
 export const routes = [
   {
@@ -14,5 +16,13 @@ export const routes = [
   {
     path: "/withHooks/signUp",
     element: <Signup />,
+  },
+  {
+    path: "/withHooks/appointment",
+    element: <Appointment />,
+  },
+  {
+    path: "/withComponents/signUp",
+    element: <SignUpComp />,
   },
 ];

@@ -10,15 +10,15 @@ export const navigation = {
     name: "With Hooks",
     routes: [
       { path: "/withHooks/signUp", name: "Sign Up" },
-      { path: "/withHooks/webinarForm", name: "Webinar Form" },
+      { path: "/withHooks/appointment", name: "Appointment" },
       { path: "/withHooks/someTool", name: "Some tools" },
     ],
   },
 
-  withComponent: {
+  "/withComponents": {
     name: "With Components",
     routes: [
-      { path: "/signUp", name: "Sign Up" },
+      { path: "/withComponents/signUp", name: "Sign Up" },
       { path: "/webinarForm", name: "Webinar Form" },
       { path: "/someTool", name: "Some tools" },
     ],
