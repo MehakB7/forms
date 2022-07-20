@@ -19,8 +19,42 @@ export const navigation = {
     name: "With Components",
     routes: [
       { path: "/withComponents/signUp", name: "Sign Up" },
-      { path: "/webinarForm", name: "Webinar Form" },
+      { path: "/withComponents/shipping", name: "Shipping Form" },
       { path: "/someTool", name: "Some tools" },
     ],
   },
 };
+
+export const cities = [
+  {
+    value: "Mohali",
+    label: "Mohali",
+  },
+  {
+    value: "Chandigarh",
+    label: "Chandigarh",
+  },
+  {
+    value: "Shimla",
+    label: "Shimla",
+  },
+  {
+    value: "Pune",
+    label: "Pune",
+  },
+];
+
+export const state = [
+  {
+    value: "Chandigath",
+    label: "Chandigath",
+  },
+  {
+    value: "Punjab",
+    label: "Punjab",
+  },
+  {
+    value: "Himachal Pardesh",
+    label: "Himachal Pardesh",
+  },
+];

@@ -1,23 +1,22 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import { useField } from "formik/dist/Field";
-
+import { useField } from "formik";
 export const SelectBox = ({ options, title, ...other }) => {
   const [fields, meta, helpers] = useField(other.name);
 
-  const children = options.map((item, index) => (
-    <MenuItem value={item.value}>{item.name}</MenuItem>
-  ));
-
   return (
-    <FormControl>
-      <InputLabel id="demo-simple-select-helper-label">{title}</InputLabel>
+    <FormControl sx={{ minWidth: "240px", ml: 0 }}>
+      <InputLabel id="title">{title}</InputLabel>
       <Select
-        labelId="demo-simple-select-helper-label"
+        labelId="title"
         {...other}
         {...fields}
         error={Boolean(meta.error && meta.touched)}
       >
-        {children}
+        {options.map((item, index) => (
+          <MenuItem value={item.value} key={index}>
+            {item.label}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
