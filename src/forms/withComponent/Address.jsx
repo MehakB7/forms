@@ -27,7 +27,7 @@ export const AddressForm = () => {
         <Grid item xs={12}>
           <Input
             type="text"
-            name="address"
+            name="addressA"
             label="Address Line 1"
             fullWidth
           ></Input>
@@ -35,7 +35,7 @@ export const AddressForm = () => {
         <Grid item xs={12}>
           <Input
             type="text"
-            name="address"
+            name="addressB"
             label="Address Line 2"
             fullWidth
           ></Input>

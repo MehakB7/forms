@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AddressForm } from "./Address";
 import { PaymentForm } from "./Payment";
+import { Review } from "../../views/Review";
+import { SubmitOrder } from "../../views/SubmitOrder";
 import {
   Grid,
   Paper,
@@ -11,6 +13,7 @@ import {
   Button,
 } from "@mui/material";
 import { Formik } from "formik";
+import { shippingFormValidation } from "../../helper/validations";
 
 export const ShippingFrom = (props) => {
   const initialState = {
@@ -43,7 +46,7 @@ export const ShippingFrom = (props) => {
       case 1:
         return <PaymentForm />;
       case 2:
-        return null;
+        return <Review />;
       default:
         return null;
     }
@@ -62,29 +65,39 @@ export const ShippingFrom = (props) => {
         <Typography variant={"h5"} sx={{ mb: 3 }}>
           {steps[activeStep]}
         </Typography>
-        <Stepper activeStep={activeStep} alternativeLabel>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-        <Formik initialValues={initialState} onSubmit={handleSubmit}>
-          {(props) => {
-            return (
-              <>
-                {renderForm()}
-                <Button
-                  variant="contained"
-                  onClick={props.handleSubmit}
-                  sx={{ mt: 4 }}
-                >
-                  Next
-                </Button>
-              </>
-            );
-          }}
-        </Formik>
+        {activeStep < 3 ? (
+          <>
+            <Stepper activeStep={activeStep} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <Formik
+              initialValues={initialState}
+              onSubmit={handleSubmit}
+              validationSchema={shippingFormValidation()[activeStep]}
+            >
+              {(props) => {
+                return (
+                  <>
+                    {renderForm()}
+                    <Button
+                      variant="contained"
+                      onClick={props.handleSubmit}
+                      sx={{ mt: 4 }}
+                    >
+                      {activeStep === 2 ? "Place Order" : "Next"}
+                    </Button>
+                  </>
+                );
+              }}
+            </Formik>
+          </>
+        ) : (
+          <SubmitOrder />
+        )}
       </Paper>
     </Grid>
   );

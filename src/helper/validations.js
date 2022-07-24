@@ -32,7 +32,7 @@ export const shippingFormValidation = () => {
     Yup.object({
       firstName: Yup.string().min(3).required("required"),
       lastName: Yup.string().required("required"),
-      addressA: Yup.string().required("required").max(3),
+      addressA: Yup.string().required("required").min(3),
       city: Yup.string().required("required"),
       state: Yup.string().required("required"),
       zipcode: Yup.string()
@@ -41,10 +41,10 @@ export const shippingFormValidation = () => {
     }),
     Yup.object({
       cardName: Yup.string().min(3).required("required"),
-      cardNo: Yup.string().min(3).required("required"),
+      cardNo: Yup.string().required("required"),
       cvv: Yup.string()
         .matches(/^[0-9]+$/, "Must be only digits")
-        .test("len", (val) => val.length === 3),
+        .test("len", (value) => value && value.length === 3),
       expireDate: Yup.date().min(new Date(), "Date already passed"),
     }),
   ];

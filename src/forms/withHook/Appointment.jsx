@@ -116,11 +116,9 @@ export const Appointment = () => {
             />
           </LocalizationProvider>
           <FormControl>
-            <InputLabel id="demo-simple-select-helper-label">
-              preferred Location
-            </InputLabel>
+            <InputLabel id="location">preferred Location</InputLabel>
             <Select
-              labelId="demo-simple-select-helper-label"
+              labelId=""
               id="location"
               label="location"
               {...formik.getFieldProps("location")}
